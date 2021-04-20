@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnOpenCompass;
+    Button btnOpenCompass, btnMap;
     Intent compassActivity;
 
 
@@ -21,14 +21,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnOpenCompass = findViewById(R.id.btnOpenCompassView);
         btnOpenCompass.setOnClickListener(this);
+
+        btnMap = findViewById(R.id.btnMap);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnOpenCompassView:
-                compassActivity = new Intent(this, CompassActivity.class);
-                startActivity(compassActivity); break;
+                Intent intent = new Intent(this, CompassActivity.class);
+                startActivity(intent); break;
+            case R.id.btnMap:
+                intent = new Intent(this, MapsActivity.class);
+                startActivity(intent); break;
             default: break;
         }
     }
